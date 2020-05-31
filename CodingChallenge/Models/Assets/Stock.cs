@@ -38,7 +38,6 @@ namespace CodingChallenge
         {
             Stock otherStock = asset as Stock;
 
-            // If Key is same, Currency should be same according to the real life scenarios
             if (Key != otherStock.Key)
             {
                 return null;
