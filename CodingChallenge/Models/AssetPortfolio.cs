@@ -69,7 +69,7 @@ namespace CodingChallenge.Models
 
                 foreach (var asset in _portfolio)
                 {
-                    Consolidation(consolidatedAssets, asset);
+                    Consolidate(consolidatedAssets, asset);
                 }
 
                 _locker.EnterWriteLock();
@@ -85,7 +85,7 @@ namespace CodingChallenge.Models
             return this;
         }
 
-        private void Consolidation(Dictionary<string, IAsset> consolidatedAssets, IAsset asset)
+        private void Consolidate(Dictionary<string, IAsset> consolidatedAssets, IAsset asset)
         {
             if (consolidatedAssets.ContainsKey(asset.Key))
             {

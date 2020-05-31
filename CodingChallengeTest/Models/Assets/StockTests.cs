@@ -1,11 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CodingChallenge;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CodingChallenge.Models;
+﻿using CodingChallenge.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodingChallenge.Tests
 {
