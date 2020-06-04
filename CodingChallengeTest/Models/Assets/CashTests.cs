@@ -11,9 +11,9 @@ namespace CodingChallenge.Models.Assets.Tests
             var cash1 = new Cash(1000, Currency.EUR);
             var cash2 = new Cash(200, Currency.GBP);
 
-            var sut = cash1.Consolidate(cash2);
+            var result = cash1.Consolidate(cash2);
 
-            Assert.IsNull(sut);
+            Assert.IsNull(result);
         }
 
         [TestMethod()]
@@ -23,10 +23,10 @@ namespace CodingChallenge.Models.Assets.Tests
             var cash1 = new Cash(1000, Currency.EUR);
             var cash2 = new Cash(200, Currency.EUR);
 
-            var sut = cash1.Consolidate(cash2);
+            var result = cash1.Consolidate(cash2);
 
-            Assert.AreEqual(Currency.EUR, sut.Currency);
-            Assert.AreEqual(1200, sut.GetValue());
+            Assert.AreEqual(Currency.EUR, result.Currency);
+            Assert.AreEqual(1200, result.GetValue());
         }
     }
 }

@@ -12,9 +12,9 @@ namespace CodingChallenge.Tests
             var stock1 = new Stock("ABC", 100, 2, Currency.USD);
             var stock2 = new Stock("ACC", 200, 3.5, Currency.USD);
 
-            var sut = stock1.Consolidate(stock2);
+            var result = stock1.Consolidate(stock2);
 
-            Assert.IsNull(sut);
+            Assert.IsNull(result);
         }
 
         [TestMethod()]
@@ -23,11 +23,11 @@ namespace CodingChallenge.Tests
             var stock1 = new Stock("ABC", 100, 2, Currency.USD);
             var stock2 = new Stock("ABC", 200, 3.5, Currency.USD);
 
-            var sut = stock1.Consolidate(stock2);
+            var result = stock1.Consolidate(stock2);
 
-            Assert.AreEqual(900, sut.GetValue());
-            Assert.AreEqual(3, (sut as Stock).Price);
-            Assert.AreEqual(300, (sut as Stock).Shares);
+            Assert.AreEqual(900, result.GetValue());
+            Assert.AreEqual(3, (result as Stock).Price);
+            Assert.AreEqual(300, (result as Stock).Shares);
         }
     }
 }

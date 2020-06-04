@@ -16,11 +16,11 @@ namespace CodingChallenge.Models.Tests
             assetPortfolio.Add(new Stock("ABC", 100, 2, Currency.USD));
             assetPortfolio.Add(new Stock("ABC", 200, 3.5, Currency.USD));
 
-            var sut = assetPortfolio.Consolidate();
+            var result = assetPortfolio.Consolidate();
 
-            Assert.AreEqual(1, sut.Portfolio.Count);
-            Assert.AreEqual(3, (sut.Portfolio[0] as Stock).Price);
-            Assert.AreEqual(300, (sut.Portfolio[0] as Stock).Shares);
+            Assert.AreEqual(1, result.Portfolio.Count);
+            Assert.AreEqual(3, (result.Portfolio[0] as Stock).Price);
+            Assert.AreEqual(300, (result.Portfolio[0] as Stock).Shares);
         }
 
         [TestMethod()]
@@ -30,11 +30,11 @@ namespace CodingChallenge.Models.Tests
             assetPortfolio.Add(new Cash(1000, Currency.EUR));
             assetPortfolio.Add(new Cash(200, Currency.EUR));
 
-            var sut = assetPortfolio.Consolidate();
+            var result = assetPortfolio.Consolidate();
 
-            Assert.AreEqual(1, sut.Portfolio.Count);
-            Assert.AreEqual(Currency.EUR, (sut.Portfolio[0] as Cash).Currency);
-            Assert.AreEqual(1200, (sut.Portfolio[0] as Cash).GetValue());
+            Assert.AreEqual(1, result.Portfolio.Count);
+            Assert.AreEqual(Currency.EUR, (result.Portfolio[0] as Cash).Currency);
+            Assert.AreEqual(1200, (result.Portfolio[0] as Cash).GetValue());
         }
 
         [TestMethod()]
@@ -46,13 +46,13 @@ namespace CodingChallenge.Models.Tests
             assetPortfolio.Add(new Cash(1000, Currency.EUR));
             assetPortfolio.Add(new Cash(200, Currency.EUR));
 
-            var sut = assetPortfolio.Consolidate();
+            var result = assetPortfolio.Consolidate();
 
-            Assert.AreEqual(2, sut.Portfolio.Count);
-            Assert.AreEqual(3, (sut.Portfolio[0] as Stock).Price);
-            Assert.AreEqual(300, (sut.Portfolio[0] as Stock).Shares);
-            Assert.AreEqual(Currency.EUR, (sut.Portfolio[1] as Cash).Currency);
-            Assert.AreEqual(1200, (sut.Portfolio[1] as Cash).GetValue());
+            Assert.AreEqual(2, result.Portfolio.Count);
+            Assert.AreEqual(3, (result.Portfolio[0] as Stock).Price);
+            Assert.AreEqual(300, (result.Portfolio[0] as Stock).Shares);
+            Assert.AreEqual(Currency.EUR, (result.Portfolio[1] as Cash).Currency);
+            Assert.AreEqual(1200, (result.Portfolio[1] as Cash).GetValue());
         }
 
         [TestMethod()]
@@ -67,9 +67,9 @@ namespace CodingChallenge.Models.Tests
             assetPortfolio.Add(new Cash(1000, Currency.EUR));
             assetPortfolio.Add(new Cash(70, Currency.EUR));
 
-            var sut = await assetPortfolio.ValueAsync(Currency.AUD);
+            var result = await assetPortfolio.ValueAsync(Currency.AUD);
 
-            Assert.AreEqual(3940, sut);
+            Assert.AreEqual(3940, result);
         }
     }
 }

@@ -12,8 +12,8 @@ namespace CodingChallenge.Service.Tests
         {
             var exchangeRateService = new ExchangeRateService();
 
-            var sut = await exchangeRateService.GetRateAsync(Currency.EUR, Currency.USD);
-            Assert.IsTrue(sut > 0);
+            var result = await exchangeRateService.GetRateAsync(Currency.EUR, Currency.USD);
+            Assert.IsTrue(result > 0);
         }
 
         [TestMethod()]
@@ -21,8 +21,8 @@ namespace CodingChallenge.Service.Tests
         {
             var exchangeRateService = new ExchangeRateService();
 
-            var sut = await exchangeRateService.GetRateAsync(Currency.USD, Currency.EUR);
-            Assert.IsTrue(sut > 0);
+            var result = await exchangeRateService.GetRateAsync(Currency.USD, Currency.EUR);
+            Assert.IsTrue(result > 0);
         }
 
         [TestMethod()]
@@ -30,8 +30,8 @@ namespace CodingChallenge.Service.Tests
         {
             var exchangeRateService = new ExchangeRateService();
 
-            var sut = await exchangeRateService.GetRateAsync(Currency.TRY, Currency.GBP);
-            Assert.IsTrue(sut > 0);
+            var result = await exchangeRateService.GetRateAsync(Currency.TRY, Currency.GBP);
+            Assert.IsTrue(result > 0);
         }
     }
 }
